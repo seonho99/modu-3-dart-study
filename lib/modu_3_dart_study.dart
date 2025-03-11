@@ -5,4 +5,4 @@ void main() {
 int calculate() {
   return 6 * 7;
 }
-11
+1
