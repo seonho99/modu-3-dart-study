@@ -1,6 +1,7 @@
 // 주어진 숫자가 소수인지 확인하는 함수를 작성하세요.
 bool isPrime(int number) {
   for (int i = 2; i < number; i++) {
+    // print('for i : $i');
     if (number % i == 0) {
       return false;
     }
