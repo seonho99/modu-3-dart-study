@@ -45,12 +45,12 @@ class Cleric {
 
 void main() {
   Cleric cleric = Cleric('클레릭', 50, 5);
-  // print(cleric.name);
-  // print(cleric.hp);
-  // print(cleric.maxHp);
-  // print(cleric.mp);
-  // print(cleric.maxMp);
-  // cleric.selfAid();
+  print(cleric.name);
+  print(cleric.hp);
+  print(cleric.maxHp);
+  print(cleric.mp);
+  print(cleric.maxMp);
+  cleric.selfAid();
   // print(cleric.prey());
   int result = cleric.prey(1);
   print(result);
