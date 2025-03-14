@@ -7,7 +7,7 @@ class Cleric {
   int hp;
   int mp;
 
-  Cleric({required this.name, int? hp, int? mp}) //initializer list
+  Cleric({required this.name, int? hp, int? mp}) // initializer list
     : hp = hp ?? maxHp,
       mp = mp ?? maxMp;
 
