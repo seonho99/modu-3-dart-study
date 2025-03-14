@@ -3,12 +3,13 @@ import 'dart:math';
 class Cleric {
   static int maxHp = 50;
   static int maxMp = 10;
-  String name;
-  int hp = 50;
-  int mp = 10;
+  final String name;
+  int hp;
+  int mp;
 
-
-  Cleric(this.name, this.hp, this.mp);
+  Cleric({required this.name, int? hp, int? mp})
+    : hp = hp ?? maxHp,
+      mp = mp ?? maxMp;
 
   var random = Random();
 
@@ -46,5 +47,20 @@ class Cleric {
 }
 
 void main() {
-  Cleric cleric = Cleric('클레릭', 50, 5);
+  Cleric cleric1 = Cleric(name: '아서스', hp: 40, mp: 5);
+  Cleric cleric2 = Cleric(name: '아서스', hp: 35, mp: Cleric.maxMp);
+  Cleric cleric3 = Cleric(name: '아서스', hp: Cleric.maxHp, mp: Cleric.maxMp);
+
+  print(cleric1.name);
+  print(cleric1.hp);
+  print(cleric1.mp);
+
+  print(cleric2.name);
+  print(cleric2.hp);
+  print(cleric2.mp);
+
+  print(cleric3.name);
+  print(cleric3.hp);
+  print(cleric3.mp);
 }
+
