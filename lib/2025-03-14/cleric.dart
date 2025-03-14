@@ -7,7 +7,7 @@ class Cleric {
   int hp;
   int mp;
 
-  Cleric({required this.name, int? hp, int? mp})
+  Cleric({required this.name, int? hp, int? mp}) //initializer list
     : hp = hp ?? maxHp,
       mp = mp ?? maxMp;
 
@@ -48,8 +48,8 @@ class Cleric {
 
 void main() {
   Cleric cleric1 = Cleric(name: '아서스', hp: 40, mp: 5);
-  Cleric cleric2 = Cleric(name: '아서스', hp: 35, mp: Cleric.maxMp);
-  Cleric cleric3 = Cleric(name: '아서스', hp: Cleric.maxHp, mp: Cleric.maxMp);
+  Cleric cleric2 = Cleric(name: '아서스', hp: 35);
+  Cleric cleric3 = Cleric(name: '아서스');
 
   print(cleric1.name);
   print(cleric1.hp);
@@ -63,4 +63,3 @@ void main() {
   print(cleric3.hp);
   print(cleric3.mp);
 }
-

@@ -20,8 +20,8 @@ void main() {
   test('cleric prey', () {
     // given(준비)
     Cleric cleric1 = Cleric(name: '아서스', hp: 40, mp: 5);
-    Cleric cleric2 = Cleric(name: '아서스', hp: 35, mp: Cleric.maxMp);
-    Cleric cleric3 = Cleric(name: '아서스', hp: Cleric.maxHp, mp: Cleric.maxMp);
+    Cleric cleric2 = Cleric(name: '아서스', hp: 35);
+    Cleric cleric3 = Cleric(name: '아서스');
 
     // when(실행)
     var clericName1 = cleric1.name;
