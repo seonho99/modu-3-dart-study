@@ -7,6 +7,7 @@ class Cleric {
   int hp = 50;
   int mp = 10;
 
+
   Cleric(this.name, this.hp, this.mp);
 
   var random = Random();
@@ -45,6 +46,5 @@ class Cleric {
 }
 
 void main() {
-
   Cleric cleric = Cleric('클레릭', 50, 5);
 }
