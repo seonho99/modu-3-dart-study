@@ -51,10 +51,10 @@ class Wizard {
   }
 
   // 3.
-  Wand get wand => _wand;
+  Wand? get wand => _wand;
 
-  set wand(Wand value) {
-    if (wand == false) {
+  set wand(Wand? value) {
+    if (wand == null) {
       throw Exception('$name가 생선된 이후에는 지팡이를 null로 설정할 수 없다.');
     } else {
       value = wand;
