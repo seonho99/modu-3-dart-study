@@ -25,8 +25,6 @@ class Wand {
     double max = 100.0;
     if (value < min || value > max) {
       throw Exception('$name 마력은 $min 이상 $max 이하 이여야 한다.');
-    } else {
-      value = power;
     }
   }
 }
@@ -54,7 +52,7 @@ class Wizard {
   Wand? get wand => _wand;
 
   set wand(Wand? value) {
-    if (wand == null) {
+    if (value == null) {
       throw Exception('$name가 생선된 이후에는 지팡이를 null로 설정할 수 없다.');
     } else {
       value = wand;
