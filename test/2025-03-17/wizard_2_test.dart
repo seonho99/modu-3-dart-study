@@ -12,10 +12,13 @@ void main() {
   // then(검증)
 
   group('과제', () {
-    test('마법사 3글자 미만', () {
-      Wizard wizard = Wizard('마법', Wand('지팡이', 5), 5, 1);
-      expect(wizard.name.length, lessThan(3));
-    });
+-   test('마법사 3글자 미만', () {
+-     Wizard wizard = Wizard('마법', Wand('지팡이', 5), 5, 1);
+-     expect(wizard.name.length, lessThan(3));
+-   });
++   test('마법사 3글자 미만 예외 발생', () {
++     expect(() => Wizard('마법', Wand('지팡이', 5), 5, 1), throwsException);
++   });
     test('지팡이 3글자 미만', () {
       Wand wand = Wand('지팡', 5);
       expect(wand.name.length, lessThan(3));
