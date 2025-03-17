@@ -1,41 +1,21 @@
-// void main() {
-//   final hero1 = Hero(name: '홍길동', hp: 100);
-//   final hero2 = hero1;
-//
-//   hero2.hp = 200;
-//
-//   print(hero1.hp);
-// }
-//
-// class Hero {
-//   String name;
-//   int hp;
-//
-//   Hero({required this.name, required this.hp});
-// }
-
-import 'dart:math';
-
 void main() {
+  final jinDo = Dog(10);
+  Dog doJi = jinDo;
+  final poMe = Dog(10);
 
-  Hero hero = Hero('홍길동', 30);
-  print(Hero.money);
+  jinDo.age = 20;
+
+  print(jinDo.age);
+  print(doJi.age);
+  print(poMe.age);
+  print(jinDo == doJi);
+  print(identical(jinDo, doJi));
+  print(jinDo == poMe);
+  print(identical(jinDo, poMe));
 }
 
-int heroMoney = 100;
+class Dog {
+  int age;
 
-class Hero {
-  static int money = 100;
-  String name;
-  int hp;
-
-  Hero(this.name, this.hp);
-
-  static void setRandomMoney() {
-    money = Random().nextInt(1000);
-  }
+  Dog(this.age);
 }
-
-// // void main (){
-// //   static String name;
-// }
