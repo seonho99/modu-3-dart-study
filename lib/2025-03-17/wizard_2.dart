@@ -10,7 +10,7 @@ class Wand {
   String get name => _name;
 
   set name(String value) {
-    if (value == false || value.length < 3) {
+    if (value == null || value.length < 3) {
       throw Exception('$name 이름은 null 일 수 없고,\n반드시 3문자 이상이어야 한다');
     } else {
       value = name;
@@ -41,10 +41,8 @@ class Wizard {
   String get name => _name;
 
   set name(String value) {
-    if (value == false || value.length < 3) {
+    if (value == null || value.length < 3) {
       throw Exception('$name 이름은 null 일 수 없고,반드시 3문자 이상이어야 한다');
-    } else {
-      value = name;
     }
   }
 
@@ -75,9 +73,7 @@ class Wizard {
 
   set hp(int value) {
     if (value < 0) {
-      hp = 0;
     } else {
-      hp = value;
     }
   }
 }
