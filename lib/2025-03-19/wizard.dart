@@ -4,11 +4,10 @@ import 'package:modu_3_dart_study/2025-03-19/slime.dart';
 import 'hero.dart';
 
 class Wizard extends Hero implements Attackable, Healable {
-  String name;
-  int hp;
+
   int mp = 100;
 
-  Wizard({required this.name, required this.hp}) : super(name: name, hp: hp);
+  Wizard({required super.name, required super.hp});
 
   @override
   void heal(Hero target) {
