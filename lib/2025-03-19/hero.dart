@@ -7,13 +7,13 @@ import 'package:modu_3_dart_study/2025-03-19/slime.dart';
 //
 //   @override
 //   void attack(Slime slime) {
-//     // TODO: implement attack
 //     super.attack(slime);
 //     print('$name이 $slime을 공격했다.');
 //     print('10의 데미지');
 //     slime.hp -= 10;
 //   }
 // }
+
 
 class Hero extends Character implements Attackable {
   String name;
