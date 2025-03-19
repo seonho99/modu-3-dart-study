@@ -7,7 +7,6 @@ class GreatWizard extends Wizard {
   GreatWizard({required String name, required int hp, required Wand? wand})
       : super(name: name, hp: hp, wand: wand);
 
-  int _superHeal = 50;
 
   @override
   void heal(Hero hero) {
