@@ -31,6 +31,9 @@ void main() {
   final byPublishDate =
   books.toList()..sort((a, b) => a.publishDate.compareTo(b.publishDate));
 
+  Book bookCopy = book1.copyWith();
+
+
   group('book test', () {
     test('출간일 동일', () {
       expect(book2 == book1, true);
@@ -41,6 +44,11 @@ void main() {
       expect(byPublishDate[1].publishDate, DateTime(2023, 03, 13));
       expect(byPublishDate[2].publishDate, DateTime(2024, 01, 01));
       expect(byPublishDate[3].publishDate, DateTime(2024, 01, 01));
+    });
+
+    test('copyWith',(){
+      expect(bookCopy.publishDate, book1.publishDate);
+      expect(identical(bookCopy, book1), false);
     });
   });
 }
