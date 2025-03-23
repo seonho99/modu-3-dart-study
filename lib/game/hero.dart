@@ -1,8 +1,16 @@
+class Sword {
+  String name;
+  int damage;
+
+  Sword({required this.name, required this.damage});
+}
+
 class Hero {
   String name;
   int hp;
+  Sword? sword;
 
-  Hero(this.name, this.hp);
+  Hero({required this.name, required this.hp, this.sword});
 
   void attack() {
     print('$name is attacking');

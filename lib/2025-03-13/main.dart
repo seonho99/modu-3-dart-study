@@ -2,7 +2,7 @@ import 'package:modu_3_dart_study/game/hero.dart';
 import 'package:modu_3_dart_study/game/slime.dart';
 
 void main() {
-  Hero hero = Hero('용사', 100);
+  Hero hero = Hero(name: '용사', hp: 100);
 
   hero.attack();
   hero.run();
@@ -13,7 +13,6 @@ void main() {
 
   slime1.run();
   slime2.run();
-
 
   bool isEven(int number) {
     return number % 2 == 0;
