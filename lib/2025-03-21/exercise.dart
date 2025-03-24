@@ -18,6 +18,11 @@ class Book {
   int get hashCode => title.hashCode ^ publishDate.hashCode;
 
   @override
+  int isCompareTo(Book other){
+    return other.publishDate.compareTo(publishDate) * -1;
+  }
+
+  @override
   String toString() {
     return 'Book{title: $title, publishDate: $publishDate, comment: $comment}';
   }
@@ -30,4 +35,3 @@ class Book {
     );
   }
 }
-
