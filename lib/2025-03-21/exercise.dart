@@ -18,8 +18,8 @@ class Book {
   int get hashCode => title.hashCode ^ publishDate.hashCode;
 
   @override
-  int isCompareTo(Book other){
-    return other.publishDate.compareTo(publishDate) * -1;
+  int compareTo(Book other) {
+    return publishDate.compareTo(other.publishDate);
   }
 
   @override

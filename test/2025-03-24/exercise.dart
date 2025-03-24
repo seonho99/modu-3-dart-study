@@ -3,7 +3,7 @@ import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
 void main() {
-  group('description', () {
+  group('StrongeBox test', () {
     test('podlock', () {
       int i = 0;
       var strongBox = StrongBox(KeyType.padlock);

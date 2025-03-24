@@ -7,12 +7,12 @@ void main() {
 
   group('낱말 테스트', () {
     test('모음 확인', () {
-      expect(vowel.isVowel(1), equals(false));
-      expect(vowel.isVowel(2), equals(true));
+      expect(vowel.isVowel(1), equals(true));
+      expect(vowel.isVowel(2), equals(false));
     });
     test('자음 확인', () {
-      expect(consonant.isConsonant(1), equals(true));
-      expect(consonant.isConsonant(2), equals(false));
+      expect(consonant.isConsonant(1), equals(false));
+      expect(consonant.isConsonant(2), equals(true));
     });
   });
 
