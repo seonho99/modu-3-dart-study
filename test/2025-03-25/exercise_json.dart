@@ -11,6 +11,7 @@ void main () {
 
   String jsonToMap = jsonEncode(department.toJson());
   File file = File('lib/2025-03-25/company.txt');
+
   file.writeAsStringSync(jsonToMap);
   String contents = file.readAsStringSync();
   test('company.txt 데이터 검사', (){

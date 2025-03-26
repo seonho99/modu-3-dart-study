@@ -4,12 +4,14 @@
 
 void main() {
   final numString = '10.5';
+  int num;
 
   try {
-    int num = int.parse(numString);
+    num = int.parse(numString);
     print(num);
   } catch (e) {
-    throw Exception(0);
+    num = 0;
+    print(num);
   }
   print(num);
 }
