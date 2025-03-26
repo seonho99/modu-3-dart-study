@@ -6,10 +6,9 @@ class CollectionCharDataList {
   CollectionCharDataList.fromJson(Map<String, dynamic> json)
       : collectionCharDataList = [] {
     final rawList = json['collectionChartDataList'];
-    if (rawList is List) {
       for (var item in rawList) {
         collectionCharDataList.add(CollectionData.fromJson(item));
-      }
+
     }
   }
 
