@@ -64,10 +64,11 @@ void main() {
 
   // 6. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오
 
-  final result6 = transactions.where(
-    (element) => element.trader.city == 'Cambridge',
-  );
-  print('6번 문제: ${result6.map((element) => element.trader.name).toList()}');
+  final result6 = transactions
+       .where((element) => element.trader.city == 'Cambridge')
+       .map((element) => element.value)
+       .toList();
+  print('6번 문제: $result6');
 
   // 7. 전체 트랜잭션 중 최대값은 얼마인가?
   final result7 = transactions
