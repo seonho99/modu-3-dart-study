@@ -82,5 +82,5 @@ void main() {
       .map((element) => element.value)
       .reduce((a, b) => a < b ? a : b);
 
-  print('7번 문제: $result8');
+  print('8번 문제: $result8');
 }
