@@ -15,7 +15,7 @@ void main() {
       jsonUser: jsonUser,
     );
 
-    final users = await userString.getUser();
+    final users = await userString.getUsers();
 
     expect(users, isA<List<User>>());
     expect(users.length, greaterThan(1));

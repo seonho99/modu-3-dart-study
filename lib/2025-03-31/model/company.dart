@@ -7,7 +7,7 @@ class Company {
 
   factory Company.fromJson(Map<String, dynamic> json) {
     return Company(
-      name: json['json'],
+      name: json['name'],
       catchPhrase: json['catchPhrase'],
       bs: json['bs'],
     );

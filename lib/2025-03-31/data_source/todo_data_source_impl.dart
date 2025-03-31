@@ -16,24 +16,32 @@ class TodoDataSourceImpl implements TodoDataSource {
 
   @override
   Future<Todo> getTodo() async {
-    final Map<String, dynamic> json = jsonDecode(jsonString);
-    return Todo.fromJson(json);
+    try {
+      final Map<String, dynamic> json = jsonDecode(jsonString);
+      return Todo.fromJson(json);
+    } catch (e) {
+      throw Exception('Todo JSON 파싱 오류: $e');
+    }
   }
 
   @override
   Future<List<Todo>> getTodos() async {
-    final List<dynamic> jsonStrings = jsonDecode(jsonList);
+    try {
+      final List<dynamic> jsonStrings = jsonDecode(jsonList);
 
-    final todos =
-        jsonStrings.map((json) {
-          return Todo.fromJson(json as Map<String, dynamic>);
-        }).toList();
+      final todos =
+          jsonStrings.map((json) {
+            return Todo.fromJson(json as Map<String, dynamic>);
+          }).toList();
 
-    return todos;
+      return todos;
+    } catch (e) {
+      throw Exception('Todos JSON 파싱 오류: $e');
+    }
   }
 
   @override
-  Future<List<User>> getUser() async {
+  Future<List<User>> getUsers() async {
     final List<dynamic> jsonUsers = jsonDecode(jsonUser);
     final users =
         jsonUsers.map((json) {
