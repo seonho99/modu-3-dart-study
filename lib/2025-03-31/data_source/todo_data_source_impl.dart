@@ -24,18 +24,22 @@ class TodoDataSourceImpl implements TodoDataSource {
   Future<List<Todo>> getTodos() async {
     final List<dynamic> jsonStrings = jsonDecode(jsonList);
 
-    final todos = jsonStrings.map((json) {
-      return Todo.fromJson(json as Map<String, dynamic>);
-    }).toList();
+    final todos =
+        jsonStrings.map((json) {
+          return Todo.fromJson(json as Map<String, dynamic>);
+        }).toList();
 
     return todos;
   }
 
   @override
   Future<List<User>> getUser() async {
-    final List<Map<String, dynamic>> jsonUsers = jsonDecode(jsonUser);
-    return jsonUsers
-        .map((Map<String, dynamic> json) => User.fromJson(json))
-        .toList();
+    final List<dynamic> jsonUsers = jsonDecode(jsonUser);
+    final users =
+        jsonUsers.map((json) {
+          return User.fromJson(json as Map<String, dynamic>);
+        }).toList();
+
+    return users;
   }
 }
