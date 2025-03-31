@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'todo.dart';
+import '../model/todo.dart';
 import 'todo_data_source.dart';
-import 'user.dart';
+import '../model/user.dart';
 
 class TodoDataSourceImpl implements TodoDataSource {
   final String jsonString;

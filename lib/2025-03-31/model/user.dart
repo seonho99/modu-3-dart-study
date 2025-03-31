@@ -1,5 +1,5 @@
-import 'package:modu_3_dart_study/2025-03-31/data_source/address.dart';
-import 'package:modu_3_dart_study/2025-03-31/data_source/company.dart';
+import 'package:modu_3_dart_study/2025-03-31/model/address.dart';
+import 'package:modu_3_dart_study/2025-03-31/model/company.dart';
 
 class User {
   final int id;
