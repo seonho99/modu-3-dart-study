@@ -37,6 +37,6 @@ class StockListing {
 
   @override
   String toString() {
-    return 'StockListing(symbol: $symbol, name: $name, exchange: $exchange, assetType: $assetType, ipoDate: $ipoDate, delistingDate: ${delistingDate ?? 'N/A'}, status: $status)';
+    return 'StockListing(symbol: $symbol, name: $name, exchange: $exchange, assetType: $assetType, ipoDate: $ipoDate, delistingDate: ${delistingDate ?? ''}, status: $status)';
   }
 }
