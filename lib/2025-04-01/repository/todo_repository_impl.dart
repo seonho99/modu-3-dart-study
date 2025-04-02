@@ -8,26 +8,23 @@ import '../model/todo.dart';
 class TodoRepositoryImpl implements TodoRepository {
   File file = File('lib/2025-04-01/remote/todo.json');
 
-  @override
-  Future<List<Todo>> getTodos() async {
+  Future<List<Todo>> _loadTodosFromJson() async {
     String jsonString = await file.readAsString();
     List<dynamic> jsonList = jsonDecode(jsonString);
-    List<Todo> todos =
-        jsonList
-            .map((json) => Todo.fromJson(json as Map<String, dynamic>))
-            .toList();
-    return todos;
+    return jsonList
+        .map((json) => Todo.fromJson(json as Map<String, dynamic>))
+        .toList();
+  }
+
+  @override
+  Future<List<Todo>> getTodos() async {
+
+    return await _loadTodosFromJson();
   }
 
   @override
   Future<List<Todo>> getCompletedTodos() async {
-    String jsonString = await file.readAsString();
-    List<dynamic> jsonList = jsonDecode(jsonString);
-    List<Todo> todos =
-        jsonList
-            .map((json) => Todo.fromJson(json as Map<String, dynamic>))
-            .where((todo) => todo.completed == true)
-            .toList();
-    return todos;
+    List<Todo> todos = await _loadTodosFromJson();
+    return todos.where((todo) => todo.completed == true).toList();
   }
 }
