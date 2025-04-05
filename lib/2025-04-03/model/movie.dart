@@ -8,6 +8,7 @@ class Movie {
   final int id;
   final String title;
   final String overview;
+  @JsonKey(name:'release_Data')
   final String releaseData;
 
   const Movie({

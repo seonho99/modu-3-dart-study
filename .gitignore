@@ -170,4 +170,5 @@ fabric.properties
 .idea/
 **/person.g.dart
 **/movie.g.dart
+**/todo.g.dart
 

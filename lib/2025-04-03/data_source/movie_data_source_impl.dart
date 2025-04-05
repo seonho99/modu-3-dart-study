@@ -12,11 +12,11 @@ class MovieDataSourceImpl implements MovieDataSource {
 
   @override
   Future<List<Map<String, dynamic>>> getUpcomingMovies() async {
-    final response = await client.get(
-      Uri.parse(
-        'https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1',
-      ),
-    );
+      final http.Response response = await client.get(
+        Uri.parse(
+          'https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1',
+        ),
+      );
 
     Map<String, dynamic> jsonMap = jsonDecode(response.body);
     List<dynamic> jsonList = jsonMap['results'];
