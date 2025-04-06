@@ -4,7 +4,6 @@ import 'package:modu_3_dart_study/2025-04-04/exam1/repository/stores_repository.
 
 import '../model/stores.dart';
 
-
 class StoresRepositoryImpl implements StoresRepository {
   final StoresDataSource dataSource;
 
@@ -12,16 +11,20 @@ class StoresRepositoryImpl implements StoresRepository {
 
   @override
   Future<List<Stores>> getStoresModel() async {
-    final dtos = await dataSource.fetchStores();
-    return dtos
-        .where(
-          (dto) =>
-              dto.remainState != null &&
-              dto.remainState!.isNotEmpty &&
-              dto.stockAt != null &&
-              dto.createdAt != null,
-        )
-        .map((dto) => dto.stores())
-        .toList();
+    try {
+      final dtos = await dataSource.fetchStores();
+      return dtos
+          .where(
+            (dto) =>
+                dto.remainState != null &&
+                dto.remainState!.isNotEmpty &&
+                dto.stockAt != null &&
+                dto.createdAt != null,
+          )
+          .map((dto) => dto.stores())
+          .toList();
+    } catch (e) {
+      throw Exception('Failed to fetch stores: $e');
+    }
   }
 }

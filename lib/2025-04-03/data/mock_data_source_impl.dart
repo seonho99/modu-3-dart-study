@@ -46,7 +46,7 @@ Future<Todo> getTodo(int id) async {
 
 
   final response = await client.get(
-    Uri.parse('https://jsonplaceholder.typicode.com/todos/$id'),
+    Uri.parse('todos/$id'),
   );
 
   if (response.statusCode == 200) {
@@ -60,7 +60,7 @@ Future<Todo> getTodo(int id) async {
 @override
 Future<List<Todo>> getTodos() async {
   final response = await client.get(
-    Uri.parse('https://jsonplaceholder.typicode.com/todos'),
+    Uri.parse('/todos'),
   );
 
   if (response.statusCode == 200) {
@@ -69,4 +69,4 @@ Future<List<Todo>> getTodos() async {
   } else {
     throw Exception('todo 목록 조회가 실패했습니다.');
   }
-}}
+}
