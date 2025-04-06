@@ -6,8 +6,10 @@ import 'package:http/http.dart' as http;
 import 'image_data_source.dart';
 
 class ImageDataSourceImpl implements ImageDataSource {
-  final http.Client client = http.Client();
+  final http.Client client;
 
+
+  ImageDataSourceImpl({http.Client? client}) : client = client ?? http.Client();
 
   @override
   Future<Uint8List> fetchImage(String url) async {
@@ -24,5 +26,9 @@ class ImageDataSourceImpl implements ImageDataSource {
   Future<void> saveImage(Uint8List bytes, String path) async {
     final file = File(path);
     await file.writeAsBytes(bytes);
+  }
+
+  void dispose(){
+    client.close();
   }
 }
