@@ -1,5 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:modu_3_dart_study/2025-04-04/exam1/model/stores.dart';
 
+part 'stores_dto.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class StoresDto {
   final String? addr;
   final String? code;
@@ -26,31 +30,7 @@ class StoresDto {
     this.type,
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      'addr': addr,
-      'code': code,
-      'createdAt': createdAt,
-      'lat': lat,
-      'lng': lng,
-      'name': name,
-      'remainState': remainState,
-      'stockAt': stockAt,
-      'type': type,
-    };
-  }
+  factory StoresDto.fromJson(Map<String,dynamic> json) => _$StoresDtoFromJson(json);
 
-  factory StoresDto.fromJson(Map<String, dynamic> json) {
-    return StoresDto(
-      addr: json['addr'] as String?,
-      code: json['code'] as String?,
-      createdAt: json['createdAt'] as DateTime?,
-      lat: json['lat'] as num?,
-      lng: json['lng'] as num?,
-      name: json['name'] as String?,
-      remainState: json['remainState'] as String?,
-      stockAt: json['stockAt'] as DateTime?,
-      type: json['type'] as String?,
-    );
-  }
+  Map<String, dynamic> toJson() => _$StoresDtoToJson(this);
 }

@@ -18,10 +18,11 @@ class StoresDataSourceImpl implements StoresDataSource {
         'https://gist.githubusercontent.com/junsuk5/2b34223fb2368d2bf44c85082745649a/raw/00cb276cb4f4f9573d868e88382f6f7f6759df31/mask_store.json',
       ),
     );
-    if(response.statusCode==200){
+    if (response.statusCode == 200) {
       return (json.decode(response.body) as List)
-          .map((data) => StoresDto.fromJson(data)).toList();
-    }else{
+          .map((data) => StoresDto.fromJson(data))
+          .toList();
+    } else {
       throw Exception('failed to StoresDtd');
     }
   }
