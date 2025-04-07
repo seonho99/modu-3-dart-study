@@ -3,14 +3,11 @@ import 'package:modu_3_dart_study/2025-04-07/repository/auth_repository_impl.dar
 
 import '../2025-04-07/model/user.dart';
 import 'core/result.dart';
-import 'data_source/mock_remote_data_source_impl.dart';
 
 void main() async {
-  // final AuthRepository _authRepository = AuthRepositoryImpl();
+  final AuthRepository _authRepository = AuthRepositoryImpl();
 
-  final repo = AuthRepositoryImpl(MockRemoteDataSourceImpl());
-
-  final result = await repo.registerUser(
+  final result = await _authRepository.registerUser(
     email: 'test@example.com',
     password: '12345678',
   );
