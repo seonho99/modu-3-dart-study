@@ -1,0 +1,182 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+BaseRepository --> Category
+
+
+UserRepository --> Provider
+UserRepository --> Location
+UserRepository --> User
+UserRepository --> Image
+
+RecipeRepository --> TimeFilter
+RecipeRepository --> Ingredent
+RecipeRepository --> Bookmark
+RecipeRepository --> Procedure
+RecipeRepository --> Recipe
+RecipeRepository --> Image
+
+ReviewRepository --> Review
+ReviewRepository --> Image
+
+NotificationRepository --> Notifications
+
+class User {
+ int id
+ String email
+ String name
+ String password
+ Provider provider
+ Image profile
+ String introduce
+ List<Recipe> recipies
+ List<Bookmark> bookmarks
+ List<User> followers
+ List<User> followings
+ DateTime createdAt
+ DateTime updatedAt
+ Location location
+}
+
+class Recipe {
+ int id
+ Category category
+ User creator
+ String name
+ double rate
+ Image image
+ String url
+ int cookTime
+ DateTime createdAt
+ int bookmarkCount
+ List<Ingredent> ingredents
+ List<Review> reviews
+ List<Bookmark> bookmarks
+}
+
+class Ingredent {
+ int id
+ String name
+ double weight
+ Image image
+}
+
+class Location {
+int id
+double latitude
+double longitude
+}
+
+class Review {
+int id
+Recipe recipe
+User author
+List<User> likes
+List<User> dislikes
+DateTime cretedAt
+String comments
+}
+
+class Category {
+
+int id
+String name
+DateTime createdAt
+
+}
+
+class Image {
+
+int id
+String url
+DateTime createdAt
+
+}
+
+class Bookmark {
+
+int id
+Recipe recipe
+List<User> users
+DateTime createdAt
+
+}
+
+class Procedure {
+
+int id
+Map<int, String> order, description
+
+}
+
+class Notifications {
+
+int id
+Datetime createdAt
+bool read
+
+}
+
+enum Provider {
+
+google
+facebook
+}
+
+enum TimeFilter {
+newest
+oldest
+popularity
+}
+
+interface BaseRepository<T, ID, DTO> {
+
+T? findOne(int id)
+List<T> findAll()
+T? findByWhere(option)
+
+}
+
+interface UserRepository implements BaseRepository<T, ID, DTO> {
+
+signIn(email, password)
+signUp(name, email, password)
+providerSignUp(provider)
+savedRecipes(Recipe  recipe)
+shareRecipe(User user, Recipe recipe)
+follow(User user)
+following(User user)
+
+}
+
+interface RecipeRepository implements BaseRepository<T, ID, DTO> {
+
+search(searchOption)
+addBookmark(Bookmark bookmark)
+rateRecipe(int id, double rate)
+
+}
+
+interface ReviewRepository implements BaseRepository<T, ID, DTO> {
+
+addReview(Recipe recipe)
+like(User user)
+dislike(User user)
+
+}
+
+interface NotificationRepository implements BaseRepository<T, ID, DTO> {
+
+notify(action, {user})
+
+}
+
+class UserRepositoryImpl implements UserRepository {}
+class RecipeRepositoryImpl implements RecipeRepository {}
+class ReviewRepositoryImpl implements ReviewRepository {}
+class NotificationRepositoryImpl implements NotificationRepository {}
+
+@enduml
+
+
