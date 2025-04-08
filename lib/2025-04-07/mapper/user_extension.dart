@@ -7,7 +7,16 @@ extension UserExtension on UserDto {
       id: id ?? 'id Error',
       email: email ?? 'email Error',
       password: password ?? 'password Error',
-      createdAt: DateTime.parse(createdAt) ?? DateTime.now(),
+      createdAt: _parseDateTime(createdAt),
     );
+  }
+}
+
+DateTime _parseDateTime(String? dateTimeStr) {
+  if (dateTimeStr == null) return DateTime.now();
+  try {
+    return DateTime.parse(dateTimeStr);
+  } catch (e) {
+    return DateTime.now();
   }
 }

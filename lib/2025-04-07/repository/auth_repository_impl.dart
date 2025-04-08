@@ -1,9 +1,9 @@
 import 'package:modu_3_dart_study/2025-04-07/data_source/auth_remote_data_source.dart';
-import 'package:modu_3_dart_study/2025-04-07/data_source/mock_remote_data_source_impl.dart';
 import 'package:modu_3_dart_study/2025-04-07/mapper/user_extension.dart';
 import 'package:modu_3_dart_study/2025-04-07/repository/auth_repository.dart';
 import '../../2025-04-07/model/user.dart';
 import '../core/result.dart';
+import '../data_source/mock_remote_data_source_impl.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   AuthRemoteDataSource _authRemoteDataSource = MockRemoteDataSourceImpl();
@@ -13,7 +13,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String email,
     required String password,
   }) async {
-    final regExp = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#\$&*~]).{6,}$');
+    final regExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     if (!regExp.hasMatch(email)) {
       return Result.error(RegistrationError.invalidEmail);
     }

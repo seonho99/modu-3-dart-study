@@ -4,11 +4,11 @@ part 'user_dto.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class UserDto {
-  final String id;
-  final String email;
-  final String password;
-  final String createdAt;
-  final String errorMessage;
+  final String? id;
+  final String? email;
+  final String? password;
+  final String? createdAt;
+  final String? errorMessage;
 
   const UserDto({
     required this.id,

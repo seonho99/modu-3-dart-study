@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
 import '../dto/user_dto.dart';
-import '../repository/auth_repository_impl.dart';
 import 'auth_remote_data_source.dart';
 
 class MockRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -31,7 +30,7 @@ class MockRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
 
     return UserDto(
-      id: 'mock_id_123',
+      id: 'mock_id_1',
       email: email,
       password: password,
       createdAt: DateTime.now().toIso8601String(),
